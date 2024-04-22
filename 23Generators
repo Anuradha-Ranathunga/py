@@ -1,0 +1,52 @@
+
+def get_odd_numbers(upper_limit):
+    odd = []
+    for i in range(0,upper_limit):
+        if i % 2 == 1:
+            print("Odd ",i)
+            odd.append(i)
+    
+    return odd
+
+print("Starting")
+x = get_odd_numbers(10)
+print("Finish")
+
+print(x)
+#Cons => numbers wishala pramanayak thiyeddi ewa store karala thiya ganna one computer memory eke(line 10). Ewita computer memory eka overflow wenna puluwan. 
+#Solution =>list eke siyalu element memory ekata dala iwara wela call karanne nathuwa list eka kotasin kotasa use karanna puluwan. E sadaha Generators use karanawa. 
+#generator => function ekakin iterate ekak generate karala denawa. 
+
+
+#using generators
+def get_odd_numbers(upper_limit):
+    
+    for i in range(0,upper_limit):
+        if i % 2 == 1:
+            #print("Odd ",i)
+            yield i #i ekathu kara ganna. internally function eka call weddi eyagema internal structure ekakata add karanawa(yield karanawa).
+                    #e nisa odd retuen karanna one na. odd define karanna oneth na. 
+    
+print("Starting")
+x = get_odd_numbers(10)
+print("Finish")
+
+for i in x:
+    print("Loop ", i)
+#x gen eka element ekak gaddi automatically 26 line eka run wenawa. 2 weni element eka gaddi adala loop eke 2 weni iteration ekata gaman gannawa. 
+
+print("*" *20)
+#generators use karanna nam ewa iterate karanna one.  generators magin kotasin kotasa kiyawayi.    
+#e nisa generator bawithaya magin computer memory eka bawitha wenne eka value ekakata witharayi. e nisa python program eka memory optimize widiyata liyanna puluwan. 
+
+#Generator ekak generate karala eka iterate(consume) karala iwara unata passe eka nawatha bawiha karanna ba. 
+#eya nawatha bawitha karanna one nam e generator eka nawatha generate kara ganna one. 
+
+x = get_odd_numbers(10) #new generator
+#generator eken gatta generator object ekak iterate karala iwara unata passe aye iterate karanna ba. ehema one nam eka reset karanna one. 
+
+for i in x:
+    print("Loop ", i)
+    
+    
+print(x)  
